@@ -1,0 +1,108 @@
+##Consider the following class:
+public class IdentifyMyParts {
+    public static int x = 7;
+    public int y = 3;
+} 
+Question: What are the class variables?
+Answer: x
+Question: What are the instance variables?
+Answer: y
+-------------------------------
+##Question: What is the output from the following code:
+IdentifyMyParts a = new IdentifyMyParts(); 
+IdentifyMyParts b = new IdentifyMyParts(); 
+a.y = 5; 
+b.y = 6; 
+a.x = 1; 
+b.x = 2; 
+System.out.println("a.y = " + a.y); 
+System.out.println("b.y = " + b.y); 
+System.out.println("a.x = " + a.x); 
+System.out.println("b.x = " + b.x); 
+System.out.println("IdentifyMyParts.x = " + IdentifyMyParts.x);
+Answer: Here is the output:
+
+ a.y = 5 
+ b.y = 6 
+ a.x = 2 
+ b.x = 2
+ IdentifyMyParts.x = 2
+ 
+Because x is defined as a public static int in the class IdentifyMyParts, every reference to x will have the value that was last assigned because x is a static variable (and therefore a class variable) shared across all instances of the class. That is, there is only one x: when the value of x changes in any instance it affects the value of x for all instances of IdentifyMyParts.
+--------------------------------
+public class Question1
+{
+	public static void method(String s){
+		System.out.println("String");
+	}
+	public static void method(Object o){
+		System.out.println("Object");
+	}
+	public static void main(String args[]){
+		method(null);
+	}
+}
+Ans - String
+compiler cast the null as String
+--------------------------------
+public class Question2
+{
+	public static void method(String s){
+		System.out.println("String");
+	}
+	public static void method(Object o){
+		System.out.println("Object");
+	}
+	public static void method(Integer s){
+		System.out.println("Integer");
+	}
+	public static void main(String args[]){
+		method(null);
+	}
+}
+Ans:
+Compile :  No   , Error at  line 23
+Reason  :   Method is ambiguous 
+
+--------------------------------
+public class Question3
+{
+	public static void method(Exception e){
+		System.out.println("Exception");
+	}
+	public static void method(Object o){
+		System.out.println("Object");
+	}
+	public static void method(ArithmeticException ae){
+		System.out.println("ArithmeticException");
+	}
+	public static void main(String args[]){
+		method(null);
+	}
+}
+ArthmeticExc
+------------------------------------
+package zzJavaObjective;
+
+public class Question4 {
+
+	public static void main(String[] args) {
+		System.out.println(method());
+
+	}
+	
+	public static int method(){
+		try{
+			System.out.println("try");
+			int x = 4/0;
+			return 10;
+		}
+		catch(Exception e){
+			System.out.println("Catch");
+		}
+		finally{
+			System.out.println("finally");
+			return 88;
+		}
+	}
+}

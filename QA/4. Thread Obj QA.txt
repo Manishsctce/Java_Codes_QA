@@ -1,0 +1,211 @@
+##Assume the following method is properly synchronized and called from a thread A on an object B:
+wait(2000);
+After calling this method, when will the thread A become a candidate to get another turn at the CPU?
+A.	After thread A is notified, or after two seconds.
+B.	After the lock on B is released, or after two seconds.
+C.	Two seconds after thread A is notified.
+D.	Two seconds after lock B is released.
+--------------------------------------
+##What will be the output of the program?
+class MyThread extends Thread 
+{
+    MyThread() 
+    {
+        System.out.print(" MyThread");
+    }
+    public void run() 
+    {
+        System.out.print(" bar");
+    }
+    public void run(String s) 
+    {
+        System.out.println(" baz");
+    }
+}
+public class TestThreads 
+{
+    public static void main (String [] args) 
+    {
+        Thread t = new MyThread() 
+        {
+            public void run() 
+            {
+                System.out.println(" foo");
+            }
+        };
+        t.start();
+    }
+}
+A. foo	B. MyThread foo @ C. MyThread bar	D. foo bar
+------------------------------
+class MyThread extends Thread 
+{
+    public static void main(String [] args) 
+    {
+        MyThread t = new MyThread();
+        t.start();
+        System.out.print("one. ");
+        t.start();
+        System.out.print("two. ");
+    }
+    public void run() 
+    {
+        System.out.print("Thread ");
+    }
+}
+A.	Compilation fails
+B.	An exception occurs at runtime.	@
+C.	It prints "Thread one. Thread two."
+D.	The output cannot be determined.
+Exp : When the start() method is attempted a second time on a single Thread object, the method will throw an IllegalThreadStateException 
+------------------------------
+##What will be the output of the program?
+class MyThread extends Thread 
+{ 
+    MyThread() {} 
+    MyThread(Runnable r) {super(r); } 
+    public void run() 
+    { 
+        System.out.print("Inside Thread ");
+    } 
+} 
+class MyRunnable implements Runnable 
+{ 
+    public void run() 
+    { 
+        System.out.print(" Inside Runnable"); 
+    } 
+} 
+class Test 
+{  
+    public static void main(String[] args) 
+    { 
+        new MyThread().start(); 
+        new MyThread(new MyRunnable()).start(); 
+    } 
+}
+A.	Prints "Inside Thread Inside Thread"  --
+B.	Prints "Inside Thread Inside Runnable"
+C.	Does not compile
+D.	Throws exception at runtime
+Exp - If a Runnable object is passed to the Thread constructor, then the run method of the Thread class will invoke the run method of the Runnable object.
+-------------------------------
+public class Q126 implements Runnable 
+{ 
+    private int x; 
+    private int y; 
+
+    public static void main(String [] args) 
+    { 
+        Q126 that = new Q126(); 
+        (new Thread(that)).start( ); /* Line 8 */
+        (new Thread(that)).start( ); /* Line 9 */
+    } 
+    public synchronized void run( ) /* Line 11 */
+    { 
+        for (;;) /* Line 13 */
+        { 
+            x++; 
+            y++; 
+            System.out.println("x = " + x + "y = " + y); 
+        } 
+    } 
+}
+A.	An error at line 11 causes compilation to fail
+B.	Errors at lines 8 and 9 cause compilation to fail.
+C.	The program prints pairs of values for x and y that might not always be the same on the same line (for example, "x=2, y=1")
+D.	
+The program prints pairs of values for x and y that are always the same on the same line (for example, "x=1, y=1". In addition, each value appears once (for example, "x=1, y=1" followed by "x=2, y=2") ===
+---------------------------------------
+public class ThreadDemo 
+{ 
+    private int count = 1; 
+    public synchronized void doSomething() 
+    { 
+        for (int i = 0; i < 10; i++) 
+            System.out.println(count++); 
+    } 
+    public static void main(String[] args) 
+    { 
+        ThreadDemo demo = new ThreadDemo(); 
+        Thread a1 = new A(demo); 
+        Thread a2 = new A(demo); 
+        a1.start(); 
+        a2.start(); 
+    } 
+} 
+class A extends Thread 
+{ 
+    ThreadDemo demo; 
+    public A(ThreadDemo td) 
+    { 
+        demo = td; 
+    } 
+    public void run() 
+    { 
+        demo.doSomething(); 
+    } 
+}
+A.	It will print the numbers 0 to 19 sequentially
+B.	It will print the numbers 1 to 20 sequentially ==
+C.	It will print the numbers 1 to 20, but the order cannot be determined
+D.	The code will not compile.
+====================================
+##What will be the output of the program?
+public class WaitTest 
+{
+    public static void main(String [] args) 
+    {
+        System.out.print("1 ");
+        synchronized(args)
+        {
+            System.out.print("2 ");
+            try 
+            {
+                    args.wait(); /* Line 11 */
+            }
+            catch(InterruptedException e){ }
+        }
+        System.out.print("3 ");
+    }
+}
+A.	It fails to compile because the IllegalMonitorStateException of wait() is not dealt with in line 11.
+B.	1 2 3
+C.	1 3
+D.	1 2	@
+
+Exp - 1 and 2 will be printed, but there will be no return from the wait call because no other thread will notify the main thread, so 3 will never be printed
+-------------------------------------------
+##What will be the output of the program?
+public class SyncTest 
+{
+    public static void main (String [] args) 
+    {
+        Thread t = new Thread() 
+        {
+            Foo f = new Foo();
+            public void run() 
+            {
+                f.increase(20);
+            }
+        };
+    t.start();
+    }
+}
+class Foo 
+{
+    private int data = 23;
+    public void increase(int amt) 
+    {
+        int x = data;
+        data = x + amt;
+    }
+}
+and assuming that data must be protected from corruption, whatif anything can you add to the preceding code to ensure the integrity of data?
+A.	Synchronize the run method.
+B.	Wrap a synchronize(this) around the call to f.increase().
+C.	The existing code will cause a runtime exception.
+D.	Synchronize the increase() method ====
+----------------------------------
+http://www.indiabix.com/java-programming/threads/018002
+

@@ -1,0 +1,165 @@
+DATA TYPE 
+==========
+
+
+COLLECTION FRAMEWORK
+====================
+1. TreeMap class is used to implement which collection interface. Select the one correct answer.
+Set
+SortedSet
+List
+Tree
+SortedMap --
+
+2. Name the Collection interface implemented by the Vector class. 
+List
+3. Name the Collection interface implemented by the Hashtable class.
+Map
+4. Name the Collection interface implemented by the HashSet class.
+5. Which of these are interfaces in the collection framework. Select the two correct answers.
+Set
+List
+Array
+Vector
+LinkedList
+
+6. Which of these are interfaces in the collection framework. Select the two correct answers.
+HashMap
+ArrayList
+Collection
+SortedMap
+TreeMap
+
+7. What is the name of collection interface used to maintain non-unique elements in order.
+8. What is the name of collection interface used to maintain unique elements.
+9. What is the name of collection interface used to maintain mappings of keys to values.
+10. Is this true or false. Map interface is derived from the Collection interface.
+True
+False
+
+-------------------------------------------------
+THREAD
+*******
+1. Which of these class is used to make a thread?
+a) String
+b) System
+c) Thread --
+d) Runnable
+
+2. Which of these interface is implemented by Thread class?
+a) Runnable --
+b) Connections
+c) Set
+d) MapConnections
+
+3. Which of these method of Thread class is used to find out the priority given to a thread?
+a) get()
+b) ThreadPriority()
+c) getPriority() --
+d) getThreadPriority()
+
+#5. Which of these method of Thread class is used to Suspend a thread for a period of time?
+a) sleep() --
+b) terminate()
+c) suspend() 
+d) stop()
+
+6. Which function of pre defined class Thread is used to check weather current thread being checked is still running?
+a) isAlive() --
+b) Join()
+c) isRunning()
+d) Alive()
+
+7. What is the output of this program?
+
+    class multithreaded_programing {
+        public static void main(String args[]) {
+            Thread t = Thread.currentThread();
+            t.setName("New Thread");
+            System.out.println(t);        
+        }
+    }
+a) Thread[5,main]
+b) Thread[New Thread,5]
+c) Thread[main,5,main]
+d) Thread[New Thread,5,main]
+View Answer
+
+8. What is the priority of the thread in output of this program?
+
+    class multithreaded_programing {
+        public static void main(String args[]) {
+            Thread t = Thread.currentThread();
+            t.setName("New Thread");
+            System.out.println(t.getName());        
+        }
+    }
+a) main
+b) Thread
+c) New Thread
+d) Thread[New Thread,5,main]
+View Answer
+
+9. What is the name of the thread in output of this program?
+
+    class multithreaded_programing {
+        public static void main(String args[]) {
+            Thread t = Thread.currentThread();
+            System.out.println(t.getPriority());        
+        }
+    }
+a) 0
+b) 1
+c) 4
+d) 5
+View Answer
+
+10. What is the name of the thread in output of this program?
+
+    class multithreaded_programing {
+        public static void main(String args[]) {
+            Thread t = Thread.currentThread();
+            System.out.println(t.isAlive());        
+        }
+    }
+a) 0
+b) 1
+c) true
+d) false
+
+
+Q 3. Which three are methods of the Object class?
+notify(); -- 
+notifyAll(); --
+isInterrupted();
+synchronized();
+interrupt();
+wait(long msecs); --
+sleep(long msecs);
+yield();
+
+**Which two are valid constructors for Thread?
+Thread(Runnable r, String name)
+Thread()
+Thread(int priority)
+Thread(Runnable r, ThreadGroup g)
+Thread(Runnable r, int priority)
+
+A   1 and 3
+B   2 and 4
+C   1 and 2 ---
+D   2 and 5
+
+Q 7. Which three guarantee that a thread will leave the running state?
+1. yield()
+2. wait()
+3. notify()
+4. notifyAll()
+5. sleep(1000)
+6. aLiveThread.join()
+7.Thread.killThread()
+
+A   1, 2 and 4
+B   2, 5 and 6 --
+C   3, 4 and 7
+D   4, 5 and 7

@@ -1,0 +1,141 @@
+COLLECTION FRAMEWORK
+====================
+1. TreeMap class is used to implement which collection interface. Select the one correct answer.
+Set
+SortedSet
+List
+Tree
+SortedMap
+
+2. Name the Collection interface implemented by the Vector class.
+3. Name the Collection interface implemented by the Hashtable class.
+4. Name the Collection interface implemented by the HashSet class.
+5. Which of these are interfaces in the collection framework. Select the two correct answers.
+Set
+List
+Array
+Vector
+LinkedList
+
+6. Which of these are interfaces in the collection framework. Select the two correct answers.
+HashMap
+ArrayList
+Collection
+SortedMap
+TreeMap
+
+7. What is the name of collection interface used to maintain non-unique elements in order.
+8. What is the name of collection interface used to maintain unique elements.
+9. What is the name of collection interface used to maintain mappings of keys to values.
+10. Is this true or false. Map interface is derived from the Collection interface.
+True
+False
+
+Answers to questions on Collections 
+e
+List
+Map
+Set
+a,b
+c,d
+List
+Set
+Map
+b
+-------------------------------------------------
+THREAD
+*******
+1. Which of these class is used to make a thread?
+a) String
+b) System
+c) Thread
+d) Runnable
+
+
+2. Which of these interface is implemented by Thread class?
+a) Runnable
+b) Connections
+c) Set
+d) MapConnections
+View Answer
+
+3. Which of these method of Thread class is used to find out the priority given to a thread?
+a) get()
+b) ThreadPriority()
+c) getPriority()
+d) getThreadPriority()
+View Answer
+
+5. Which of these method of Thread class is used to Suspend a thread for a period of time?
+a) sleep()
+b) terminate()
+c) suspend()
+d) stop()
+View Answer
+
+6. Which function of pre defined class Thread is used to check weather current thread being checked is still running?
+a) isAlive()
+b) Join()
+c) isRunning()
+d) Alive()
+View Answer
+
+7. What is the output of this program?
+
+    class multithreaded_programing {
+        public static void main(String args[]) {
+            Thread t = Thread.currentThread();
+            t.setName("New Thread");
+            System.out.println(t);        
+        }
+    }
+a) Thread[5,main]
+b) Thread[New Thread,5]
+c) Thread[main,5,main]
+d) Thread[New Thread,5,main]
+View Answer
+
+8. What is the priority of the thread in output of this program?
+
+    class multithreaded_programing {
+        public static void main(String args[]) {
+            Thread t = Thread.currentThread();
+            t.setName("New Thread");
+            System.out.println(t.getName());        
+        }
+    }
+a) main
+b) Thread
+c) New Thread
+d) Thread[New Thread,5,main]
+View Answer
+
+9. What is the name of the thread in output of this program?
+
+    class multithreaded_programing {
+        public static void main(String args[]) {
+            Thread t = Thread.currentThread();
+            System.out.println(t.getPriority());        
+        }
+    }
+a) 0
+b) 1
+c) 4
+d) 5
+View Answer
+
+10. What is the name of the thread in output of this program?
+
+    class multithreaded_programing {
+        public static void main(String args[]) {
+            Thread t = Thread.currentThread();
+            System.out.println(t.isAlive());        
+        }
+    }
+a) 0
+b) 1
+c) true
+d) false
+
+answer
+1. 

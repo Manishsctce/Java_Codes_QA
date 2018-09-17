@@ -1,0 +1,119 @@
+##Which of the following lines will compile without warning or error.
+
+1) float f=1.3; // float initialization follow with f like 1.3f
+2) char c="a"; // char in single quote
+3) byte b=257; // byte limit is -128 to 127
+4) boolean b=null; //only true or false
+5) int i=10; -- correct
+
+
+##What will happen if you try to compile and run the following code
+
+public class MyClass { 
+	public static void main(String arguments[]) { 
+		amethod(arguments); 
+		} 
+	public void amethod(String[] arguments) { 
+		System.out.println(arguments); 
+		System.out.println(arguments[1]); 
+	} 
+} 
+
+1) error Can't make static reference to void amethod. --
+2) error method main not correct
+3) error array must include parameter
+4) amethod must be declared with String
+Expl - here amethod is non-static method and in main method we are making non-static reference 
+Note - can't make non-static reference in static method
+Test CODE - DataTypeTest.java
+
+##Which of the following will compile without error
+
+1)
+import java.awt.*; 
+package Mypackage; 
+class Myclass {}
+
+2)
+package MyPackage; 
+import java.awt.*; 
+class MyClass{}
+
+3)
+/*This is a comment */ 
+package MyPackage; 
+import java.awt.*; 
+class MyClass{} 
+
+Expl - 2 and 3, package statement should be 1st always, no matter with comments otherwise compiler error "syntax error"
+
+##A byte can be of what size
+
+1) -128 to 127 --
+2) (-2 power 8 )-1 to 2 power 8
+3) -255 to 256
+4)depends on the particular implementation of the Java Virtual machine
+
+##What will be printed out if this code is run with the following command line?
+
+java myprog good morning
+
+public class myprog{ 
+public static void main(String argv[])
+    { 
+    System.out.println(argv[2]) 
+    }
+}
+
+1) myprog
+2) good
+3) morning
+4) Exception raised: "java.lang.ArrayIndexOutOfBoundsException: 2" --
+
+##Which of the following are legal identifiers
+1) 2variable
+2) variable2  --
+3) _whatavariable  --
+4) _3_   --
+5) $anothervar --
+6) #myvar
+
+##What will happen when you compile and run the following code?
+ 
+public class MyClass{ 
+	static int i; 
+	public static void main(String argv[]){ 
+		System.out.println(i); 
+		} 
+}
+1) Error Variable i may not have been initialized
+2) null
+3) 1
+4) 0 --
+
+##What will happen if you try to compile and run the following code?
+public class Q { 
+	public static void main(String argv[]){ 
+		int anar[]=new int[]{1,2,3};
+		System.out.println(anar[1]); 
+		} 
+}
+1) 1
+2) Error anar is referenced before it is initialized
+3) 2 --
+4) Error: size of array must be defined
+ 
+
+
+##What will happen if you try to compile and run the following code?
+public class Q { 
+	public static void main(String argv[]){ 
+		int anar[]=new int[5];
+		System.out.println(anar[0]); 
+		} 
+}
+
+1) Error: anar is referenced before it is initialized
+2) null
+3) 0
+4) 5

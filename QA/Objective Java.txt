@@ -1,0 +1,226 @@
+##What will be the output of the program?
+public class If2 
+{
+    static boolean b1, b2;
+    public static void main(String [] args) 
+    {
+        int x = 0;
+        if ( !b1 ) /* Line 7 */
+        {
+            if ( !b2 ) /* Line 9 */
+            {
+                b1 = true;
+                x++;
+                if ( 5 > 6 ) 
+                {
+                    x++;
+                }
+                if ( !b1 ) 
+                    x = x + 10;
+                else if ( b2 = true ) /* Line 19 */
+                    x = x + 100;
+                else if ( b1 | b2 ) /* Line 21 */
+                    x = x + 1000;
+            }
+        }
+        System.out.println(x);
+    }
+}
+A.	0	B.	1
+C.	101	@
+D.	111
+--------------------------------------
+##What will be the output of the program?
+
+public class SwitchTest 
+{  
+    public static void main(String[] args) 
+    {
+        System.out.println("value =" + switchIt(4)); 
+    } 
+    public static int switchIt(int x) 
+    {
+        int j = 1;  
+        switch (x) 
+        { 
+            case l: j++; 
+            case 2: j++;  
+            case 3: j++; 
+            case 4: j++; 
+            case 5: j++; 
+            default: j++; 
+            } 
+        return j + x;  
+    } 
+}
+A.	value = 2	B.	value = 4
+C.	value = 6	D.	
+value = 8	@
+--------------------------
+What will be the output of the program?
+
+public class Switch2 
+{
+    final static short x = 2;
+    public static int y = 0;
+    public static void main(String [] args) 
+    {
+        for (int z=0; z < 3; z++) 
+        {
+            switch (z) 
+            {
+                case x: System.out.print("0 ");
+                case x-1: System.out.print("1 ");
+                case x-2: System.out.print("2 ");
+            }
+        }
+    }
+}
+A.	0 1 2	
+B.	0 1 2 1 2 2
+C.	2 1 0 1 0 0	D.	
+2 1 2 0 1 2	@
+----------------
+##What will be the output of the program?
+int i = 1, j = 10; 
+do 
+{
+    if(i > j) 
+    {
+        break; 
+    } 
+    j--; 
+} while (++i < 5); 
+System.out.println("i = " + i + " and j = " + j);
+
+A.	i = 6 and j = 5	
+B.	i = 5 and j = 5
+C.	i = 6 and j = 4	
+D.	i = 5 and j = 6	@
+---------------------------
+What will be the output of the program?
+
+int i = l, j = -1; 
+switch (i) 
+{
+    case 0, 1: j = 1; /* Line 4 */
+    case 2: j = 2; 
+    default: j = 0; 
+} 
+System.out.println("j = " + j); 
+A.	j = -1	B.	j = 0
+C.	j = 1	D.	
+Compilation fails.	@
+--------------------------------------
+	
+What will be the output of the program?
+
+public class If1 
+{
+    static boolean b;
+    public static void main(String [] args) 
+    {
+        short hand = 42;
+        if ( hand < 50 && !b ) /* Line 7 */
+            hand++;
+        if ( hand > 50 );     /* Line 9 */
+        else if ( hand > 40 ) 
+        {
+            hand += 7;
+            hand++;    
+        }
+        else
+            --hand;
+        System.out.println(hand);
+    }
+}
+A.	41	B.	42 C.	50	D.	51	@
+---------------------------
+What will be the output of the program?
+
+public class Test 
+{
+    public static void main(String [] args) 
+    {
+        int I = 1;
+        do while ( I < 1 )
+        System.out.print("I is " + I);
+        while ( I > 1 ) ;
+    }
+}
+A.	I is 1
+B.	I is 1 I is 1
+C.	
+No output is produced.	@
+D.	Compilation error
+---------------------------------------
+What will be the output of the program?
+
+int I = 0;
+    outer:
+    while (true) 
+    {
+        I++;
+        inner:
+        for (int j = 0; j < 10; j++) 
+        {
+            I += j;
+            if (j == 3)
+                continue inner;
+            break outer;
+        }
+        continue outer;
+    }
+System.out.println(I);
+A.	
+1	@
+B.	2
+C.	3	D.	4
+-------------------------------------
+What will be the output of the program?
+
+public class Delta 
+{ 
+    static boolean foo(char c) 
+    {
+        System.out.print(c); 
+        return true; 
+    } 
+    public static void main( String[] argv ) 
+    {
+        int i = 0; 
+        for (foo('A'); foo('B') && (i < 2); foo('C')) 
+        {
+            i++; 
+            foo('D'); 
+        } 
+    } 
+}
+A.	ABDCBDCB @
+B.	ABCDABCD 
+C.	Compilation fails.
+D.	An exception is thrown at runtime.
+----------------------
+What will be the output of the program?
+
+boolean bool = true; 
+if(bool = false) /* Line 2 */
+{
+    System.out.println("a"); 
+} 
+else if(bool) /* Line 6 */
+{
+    System.out.println("b"); 
+} 
+else if(!bool) /* Line 10 */
+{
+    System.out.println("c"); /* Line 12 */
+} 
+else 
+{
+    System.out.println("d"); 
+}
+A.	a	B.	b
+C.	
+c	@
+D.	d
